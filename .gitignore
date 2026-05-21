@@ -1,0 +1,10 @@
+node_modules/
+__pycache__/
+*.pyc
+package-lock.json
+dist/
+dist_electron/
+.env
+.vscode/
+.idea/
+*.log

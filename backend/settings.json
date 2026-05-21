@@ -1,0 +1,14 @@
+{
+    "maxFileSize": 52428800,
+    "autoDownload": true,
+    "downloadPath": "",
+    "proxy": {
+        "enabled": false,
+        "type": "http",
+        "host": "",
+        "port": "",
+        "username": "",
+        "password": ""
+    },
+    "webviewPreloadPath": "C:\\2em\\nodejs\\web-downloader\\python-version\\frontend\\src\\preload\\index.js"
+}
