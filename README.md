@@ -1,1 +1,95 @@
-# Web Downloader (Hybrid Engine)`n`nA sophisticated web resource downloader and scraper that combines the power of a Python backend with a modern Electron frontend.`n`n## ?? Key Features`n- **Dual-Chromium Architecture**: Uses Electron for the UI and Playwright (Headless Chromium) for powerful network interception and scraping.`n- **Real-time Updates**: WebSocket-driven progress tracking for all active downloads.`n- **Deep Resource Extraction**: Intercepts JS, CSS, images, and XHR requests to capture the full state of a webpage.`n- **Hybrid Control**: A dedicated Python-driven log window alongside a sleek React-based main interface.`n- **Smart Queueing**: Resource governor manages concurrent downloads to prevent system overload.`n- **Session Sync**: Support for external login browsers to sync cookies for authenticated content.`n`n## ?? Project Structure`n`n````npython-version/`n+-- backend/               # Python FastAPI Server`n�   +-- main.py            # Entry point & Log window`n�   +-- api.py             # REST endpoints & WebSockets`n�   +-- browser.py          # Playwright Browser management`n�   +-- downloader_queue.py # Concurrent download workers`n�   +-- scraper.py          # HTML parsing & metadata extraction`n+-- frontend/              # Electron + React Application`n�   +-- src/                # Application source code`n�   +-- package.json       # Node dependencies`n+-- ARCHITECTURE.md        # Detailed system design`n+-- start.py               # Unified launcher for all components`n+-- requirements.txt       # Python dependencies`n````n`n## ?? Architecture`n`nThis project utilizes a hybrid bridge between Node.js and Python:`n`n1. **Frontend (Electron/React)**: Handles user interaction and displays the download queue.`n2. **Backend (FastAPI/Python)**: Executes the heavy lifting of browser automation and file system operations.`n3. **Communication**: Uses HTTP for commands and WebSockets for real-time telemetry.`n`n*For a deep dive into the technical design, please refer to [ARCHITECTURE.md](./ARCHITECTURE.md).*`n`n## ?? Getting Started`n`n### 1. Clone the Repository`n`n```bash`ngit clone https://github.com/abdelilah1223/L7rrata.git`ncd L7rrata`n````n`n### 2. Setup Python Backend`n`n```bash`n# Create a virtual environment (recommended)`npython -m venv venv`n# Activate it (Windows)`n.\venv\Scripts\activate`n# Install dependencies`npip install -r requirements.txt`n# Install Playwright browsers`nplaywright install chromium`n````n`n### 3. Setup Frontend`n`n```bash`ncd frontend`nnpm install`ncd ..`n````n`n### 4. Launch the Application`n`nUse the unified starter script to launch Vite, the Python backend, and the Electron UI simultaneously:`n`n```bash`npython start.py`n````n`n## ?? Improvements & Roadmap`n`n- [ ] **Persistent Storage**: Implement a database (e.g., SQLite) to keep track of download history across restarts.`n- [ ] **Advanced Filtering**: Allow users to filter specific file types (e.g., "only images") before starting a download.`n- [ ] **Parallelized Scrapers**: Expand the scraping engine to handle complex dynamic content more efficiently.`n- [ ] **Packaging**: Streamline the production build process for a single-executable distribution.`n`n## ?? License`n`nISC`n
+# Web Downloader (Hybrid Engine)
+
+A sophisticated web resource downloader and scraper that combines the power of a Python backend with a modern Electron frontend.
+
+---
+
+## Key Features
+
+- **Dual-Chromium Architecture**: Uses Electron for the UI and Playwright (Headless Chromium) for powerful network interception and scraping.
+- **Real-time Updates**: WebSocket-driven progress tracking for all active downloads.
+- **Deep Resource Extraction**: Intercepts JS, CSS, images, and XHR requests to capture the full state of a webpage.
+- **Hybrid Control**: A Python-driven log window alongside a React-based main interface.
+- **Smart Queueing**: Resource manager controls concurrent downloads to prevent overload.
+- **Session Sync**: Support for external browser sessions to access authenticated content.
+
+---
+
+## Project Structure
+
+```
+python-version/
+├── backend/
+│   ├── main.py
+│   ├── api.py
+│   ├── browser.py
+│   ├── downloader_queue.py
+│   └── scraper.py
+│
+├── frontend/
+│   ├── src/
+│   └── package.json
+│
+├── ARCHITECTURE.md
+├── start.py
+└── requirements.txt
+```
+
+---
+
+## Architecture
+
+This project uses a hybrid bridge between Node.js and Python:
+
+1. Frontend (Electron/React) handles the user interface and download queue.
+2. Backend (FastAPI/Python) handles scraping and automation tasks.
+3. Communication between them uses HTTP and WebSockets.
+
+---
+
+## Getting Started
+
+### 1. Clone the repository
+
+```
+git clone https://github.com/abdelilah1223/L7rrata.git
+cd L7rrata
+```
+
+### 2. Setup Python backend
+
+```
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+playwright install chromium
+```
+
+### 3. Setup frontend
+
+```
+cd frontend
+npm install
+cd ..
+```
+
+### 4. Run the project
+
+```
+python start.py
+```
+
+---
+
+## Roadmap
+
+- Persistent storage using SQLite
+- Advanced filtering for file types
+- Parallel scraping improvements
+- Production build packaging
+
+---
+
+## License
+
+ISC
