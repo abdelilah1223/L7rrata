@@ -92,4 +92,4 @@ python start.py
 
 ## License
 
-ISC
+                    GNU GENERAL PUBLIC LICENSE
